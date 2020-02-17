@@ -1,8 +1,8 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {ChipListControlComponent} from './chip-list-control.component';
-import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ChipListControlComponent } from './chip-list-control.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ChipListControlComponent', () => {
   let component: ChipListControlComponent;
@@ -12,12 +12,8 @@ describe('ChipListControlComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ChipListControlComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [
-        ReactiveFormsModule,
-        NoopAnimationsModule,
-      ]
-    })
-      .compileComponents();
+      imports: [ReactiveFormsModule, NoopAnimationsModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -6,9 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [ChipListControlComponent],
   exports: [ChipListControlComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-  ]
+  imports: [CommonModule, ReactiveFormsModule]
 })
-export class ChipListControlModule { }
+export class ChipListControlModule {}

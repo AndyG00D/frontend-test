@@ -22,14 +22,6 @@ module.exports = {
     "@typescript-eslint/array-type": "error",
     "@typescript-eslint/ban-types": "error",
     "@typescript-eslint/class-name-casing": "error",
-    "@typescript-eslint/explicit-member-accessibility": [
-      "error",
-      {
-        "overrides": {
-          "constructors": "off"
-        }
-      }
-    ],
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-empty-interface": "error",

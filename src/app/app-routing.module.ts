@@ -1,10 +1,13 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
     path: 'images-search',
-    loadChildren: () => import('./images-search/images-search.module').then(mod => mod.ImagesSearchModule)
+    loadChildren: () =>
+      import('./images-search/images-search.module').then(
+        mod => mod.ImagesSearchModule
+      )
   },
   {
     path: '**',
@@ -16,5 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

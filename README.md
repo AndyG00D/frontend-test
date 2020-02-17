@@ -37,7 +37,7 @@ Run `yarn lint:fix` to fix issues.
 
 ## Running analyze code by prettier
 
-Run `yarn prettier`.
+Run `yarn prettier:check`.
 
 ## Running update code by prettier
 

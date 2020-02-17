@@ -1,11 +1,14 @@
-import {ImagesService} from './image.service';
-import {HttpErrorResponse} from '@angular/common/http';
-import {TestBed} from '@angular/core/testing';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {ApiConfig} from '../api-config';
-import {environment} from '../../../environments/environment';
+import { ImagesService } from './image.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { TestBed } from '@angular/core/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing';
+import { ApiConfig } from '../api-config';
+import { environment } from '../../../environments/environment';
 
-const mockResponse: { data: IGifApi[], pagination: IPaginationApi } = {
+const mockResponse: { data: IGifApi[]; pagination: IPaginationApi } = {
   data: [
     {
       title: 'test title',
@@ -16,15 +19,15 @@ const mockResponse: { data: IGifApi[], pagination: IPaginationApi } = {
       }
     }
   ],
-  pagination: {total_count: 1, count: 1, offset: 0}
+  pagination: { total_count: 1, count: 1, offset: 0 }
 };
 
 const mockResult: IList<IGif> = {
-  data: [{title: 'test title', url: 'http://some-path/test.gif'}],
-  pagination: {total: 1, count: 1, offset: 0}
+  data: [{ title: 'test title', url: 'http://some-path/test.gif' }],
+  pagination: { total: 1, count: 1, offset: 0 }
 };
 
-const testURL = ApiConfig.gifsSearchPath + '?api_key=' + environment.apiKey;
+const testURL = `${ApiConfig.gifsSearchPath}?api_key=${environment.apiKey}`;
 
 describe('ImagesService', () => {
   let httpTestingController: HttpTestingController;
@@ -78,7 +81,7 @@ describe('ImagesService', () => {
     expect(req.request.method).toBe('GET');
 
     // Respond with mock error
-    req.flush(emsg, {status: 404, statusText: 'Not Found'});
+    req.flush(emsg, { status: 404, statusText: 'Not Found' });
   });
 
   it(`#searchGifs: can test for network error`, () => {
@@ -98,7 +101,7 @@ describe('ImagesService', () => {
     // Create mock ErrorEvent, raised when something goes wrong at the network level.
     // Connection timeout, DNS error, offline, etc
     const mockError = new ErrorEvent('Network error', {
-      message: emsg,
+      message: emsg
     });
 
     // Respond with mock error

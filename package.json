@@ -8,9 +8,9 @@
     "clean": "rm -rf ./dist ./node_modules",
     "lint": "ng lint && stylelint src/**/*.*css && eslint \"./src/**/*.ts\"",
     "styleLint": "stylelint src/**/*.*css",
-    "lint:fix": "stylelint \"src/**/*.*css\" --fix && eslint \"./src/**/*.ts\" --fix",
-    "prettier:check": "prettier '**/*.js' --list-different",
-    "prettier:fix": "prettier '**/*.js' --write",
+    "lint:fix": "ng lint --fix && stylelint \"src/**/*.*css\" --fix && eslint \"./src/**/*.ts\" --fix",
+    "prettier:check": "prettier \"./src/**/*.ts\" --list-different",
+    "prettier:fix": "prettier \"./src/**/*.ts\" --write",
     "test": "ng test",
     "e2e": "ng e2e"
   },

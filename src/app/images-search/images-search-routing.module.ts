@@ -1,7 +1,6 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {ImagesSearchPageComponent} from './containers/images-search-page/images-search-page.component';
-
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ImagesSearchPageComponent } from './containers/images-search-page/images-search-page.component';
 
 const routes: Routes = [
   {
@@ -19,5 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ImagesSearchRoutingModule {
-}
+export class ImagesSearchRoutingModule {}

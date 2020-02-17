@@ -1,8 +1,14 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ImagesService} from '../../../core/services/image.service';
-import {FormControl} from '@angular/forms';
-import {BehaviorSubject, combineLatest, Observable, Subject} from 'rxjs';
-import {distinctUntilChanged, map, switchMap, takeUntil, tap} from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ImagesService } from '../../../core/services/image.service';
+import { FormControl } from '@angular/forms';
+import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
+import {
+  distinctUntilChanged,
+  map,
+  switchMap,
+  takeUntil,
+  tap
+} from 'rxjs/operators';
 
 @Component({
   selector: 'uct-images-search-page',
@@ -19,9 +25,7 @@ export class ImagesSearchPageComponent implements OnInit, OnDestroy {
   private pageIndex$: BehaviorSubject<number> = new BehaviorSubject<number>(1);
   private destroy$: Subject<void> = new Subject();
 
-
-  constructor(private imagesService: ImagesService) {
-  }
+  constructor(private imagesService: ImagesService) {}
 
   public get pageIndex(): number {
     return this.pageIndex$.value;
@@ -44,7 +48,9 @@ export class ImagesSearchPageComponent implements OnInit, OnDestroy {
   private handleSearchingImages(): void {
     combineLatest([this.getSearchChanges(), this.getPaginationChanges()])
       .pipe(
-        map(([query, pageIndex]) => this.prepareSearchParams(query, pageIndex, this.pageSize)),
+        map(([query, pageIndex]) =>
+          this.prepareSearchParams(query, pageIndex, this.pageSize)
+        ),
         tap(() => {
           this.hasServerError = false;
           this.loading = true;
@@ -75,12 +81,14 @@ export class ImagesSearchPageComponent implements OnInit, OnDestroy {
   }
 
   private getPaginationChanges(): Observable<number> {
-    return this.pageIndex$.pipe(
-      distinctUntilChanged()
-    );
+    return this.pageIndex$.pipe(distinctUntilChanged());
   }
 
-  private prepareSearchParams(query: string, pageIndex: number, pageSize: number): { q: string; limit: string, offset: string } {
+  private prepareSearchParams(
+    query: string,
+    pageIndex: number,
+    pageSize: number
+  ): { q: string; limit: string; offset: string } {
     return {
       q: query,
       limit: pageSize.toString(),

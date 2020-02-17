@@ -4,10 +4,12 @@ import {
   Input,
   OnDestroy,
   ViewEncapsulation,
-  ChangeDetectorRef, Optional, Self
+  ChangeDetectorRef,
+  Optional,
+  Self
 } from '@angular/core';
-import {ControlValueAccessor, FormControl, NgControl} from '@angular/forms';
-import {noop} from 'rxjs';
+import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
+import { noop } from 'rxjs';
 
 @Component({
   selector: 'uct-chip-list-control',
@@ -16,7 +18,8 @@ import {noop} from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class ChipListControlComponent implements OnDestroy, ControlValueAccessor {
+export class ChipListControlComponent
+implements OnDestroy, ControlValueAccessor {
   @Input() public placeholder: string = '';
   public focused: boolean = false;
   public inputControl: FormControl = new FormControl();
@@ -25,7 +28,7 @@ export class ChipListControlComponent implements OnDestroy, ControlValueAccessor
   private onTouched: any = noop;
 
   public get control(): FormControl | null {
-    return this.ngControl ? this.ngControl.control as FormControl : null;
+    return this.ngControl ? (this.ngControl.control as FormControl) : null;
   }
 
   constructor(
@@ -89,7 +92,7 @@ export class ChipListControlComponent implements OnDestroy, ControlValueAccessor
     this.updateValue(this.value);
   }
 
-  public changeFocus(value: boolean) {
+  public changeFocus(value: boolean): void {
     if (value !== this.focused) {
       this.focused = value;
     }
@@ -100,5 +103,4 @@ export class ChipListControlComponent implements OnDestroy, ControlValueAccessor
     this.onTouched();
     this.cd.markForCheck();
   }
-
 }

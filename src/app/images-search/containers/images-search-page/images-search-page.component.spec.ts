@@ -17,7 +17,7 @@ const mockResult: IList<IGif> = {
     {title: 'test title 7', url: 'http://some-path/test7.gif'},
     {title: 'test title 8', url: 'http://some-path/test8.gif'},
     {title: 'test title 9', url: 'http://some-path/test9.gif'}
-    ],
+  ],
   pagination: {total: 10, count: 9, offset: 0}
 };
 

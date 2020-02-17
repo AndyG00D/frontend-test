@@ -3,6 +3,6 @@ declare interface IGifApi {
   images: {
     fixed_height: {
       url: string;
-    }
-  }
+    };
+  };
 }

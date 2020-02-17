@@ -18,15 +18,15 @@ describe('workspace-project App', () => {
     searchInputElement.sendKeys('test');
     browser.wait(searchInputElement.sendKeys(protractor.Key.ENTER));
 
-    //check tag badge
+    // check tag badge
     expect(page.getElementByClassName('cs-chip-list-badge').getText()).toContain('test');
 
-    //check items
+    // check items
     page.getElementsByClassName('preview-image').count().then(length => {
       expect(length).toEqual(9);
     });
 
-    //check pagination
+    // check pagination
     page.getElementByTag('ngb-pagination').isPresent().then(isPresent => {
       expect(isPresent).toBeTruthy();
     });
